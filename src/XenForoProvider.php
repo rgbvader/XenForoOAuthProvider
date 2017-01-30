@@ -30,4 +30,13 @@ class XenForoProvider extends GenericProvider
     {
         return parent::getRandomState($length);
     }
+
+    /**
+     * Use a space to force http_build_query to use '+'.
+     * @return string
+     */
+    protected function getScopeSeparator()
+    {
+        return ' ';
+    }
 }
