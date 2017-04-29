@@ -10,7 +10,7 @@ class XenForoProvider extends AbstractProvider
     const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'user_id';
     const DEFAULT_SCOPES = [ 'read' ];
 
-    private $baseUrl;
+    public $baseUrl;
 
     /**
      * @param string $url
