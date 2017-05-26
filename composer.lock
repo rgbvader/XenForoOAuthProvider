@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "919c14a6723ad22dd64a489372397358",
+    "content-hash": "f5acb1a6feb4f4c55d0acf241ec2843f",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -186,16 +186,16 @@
         },
         {
             "name": "league/oauth2-client",
-            "version": "2.2.1",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/oauth2-client.git",
-                "reference": "313250eab923e673a5c0c8f463f443ee79f4383f"
+                "reference": "0b1e5e248b3e5c609dbee4dfe9243ad7d408f76e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/313250eab923e673a5c0c8f463f443ee79f4383f",
-                "reference": "313250eab923e673a5c0c8f463f443ee79f4383f",
+                "url": "https://api.github.com/repos/thephpleague/oauth2-client/zipball/0b1e5e248b3e5c609dbee4dfe9243ad7d408f76e",
+                "reference": "0b1e5e248b3e5c609dbee4dfe9243ad7d408f76e",
                 "shasum": ""
             },
             "require": {
@@ -249,7 +249,7 @@
                 "oauth2",
                 "single sign on"
             ],
-            "time": "2017-04-25T14:43:14+00:00"
+            "time": "2017-05-17T15:41:55+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -353,7 +353,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "league/oauth2-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
