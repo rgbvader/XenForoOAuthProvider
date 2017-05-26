@@ -11,6 +11,9 @@ class XenForoProvider extends AbstractProvider
     const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'user_id';
     const DEFAULT_SCOPES = [ 'read' ];
 
+    /**
+     * API Base URL ending in '?'
+     */
     public $baseUrl;
 
     /**
@@ -44,6 +47,14 @@ class XenForoProvider extends AbstractProvider
     public function getBaseAccessTokenUrl(array $params)
     {
         return $this->baseUrl.'oauth/token&';
+    }
+
+
+    public function getAuthorizationHeaders($token = null)
+    {
+        return [
+            'Authorization' => "Bearer $token"
+        ];
     }
 
     public function getResourceOwnerDetailsUrl(AccessToken $token)
