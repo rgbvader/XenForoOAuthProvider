@@ -9,6 +9,7 @@
 namespace Rgbvader\OAuth;
 
 
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
 class User implements ResourceOwnerInterface
@@ -36,7 +37,14 @@ class User implements ResourceOwnerInterface
 
     public function __construct(array $data)
     {
-        $this->data = $data;
+        if (array_key_exists('user', $data))
+        {
+            $this->data = $data['user'];
+        }
+        else
+        {
+            throw new IdentityProviderException('Error retrieving resource owner!', 403, $data);
+        }
     }
 
 }
