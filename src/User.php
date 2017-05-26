@@ -13,7 +13,6 @@ use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
 class User implements ResourceOwnerInterface
 {
-    /** @var  User Id */
     protected $data = array();
 
     public function getId()
