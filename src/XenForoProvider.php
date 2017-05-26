@@ -4,6 +4,7 @@ namespace Rgbvader\OAuth;
 use League\OAuth2\Client\Provider\AbstractProvider;
 use League\OAuth2\Client\Token\AccessToken;
 use Psr\Http\Message\ResponseInterface;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 
 class XenForoProvider extends AbstractProvider
 {
@@ -37,7 +38,6 @@ class XenForoProvider extends AbstractProvider
 
     public function getBaseAuthorizationUrl()
     {
-        // TODO: Implement getBaseAuthorizationUrl() method.
         return $this->baseUrl.'oauth/authorize&';
     }
 
@@ -58,9 +58,13 @@ class XenForoProvider extends AbstractProvider
 
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        // TODO: Implement
-        var_dump($response);
-        die();
+        if (isset($data['error'])) {
+            throw new IdentityProviderException(
+                $data['error'] ?: $response->getReasonPhrase(),
+                $response->getStatusCode(),
+                $response
+            );
+        }
     }
 
     protected function createResourceOwner(array $response, AccessToken $token)
